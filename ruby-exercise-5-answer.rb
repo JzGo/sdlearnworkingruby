@@ -40,6 +40,10 @@ puts snowy_words.sort_by{|word| word.length}.last
 #Here, find the words that are in Snowy but not in the dictionary
 puts
 puts "Names in Snowy are:"
+def count a
+  puts a.count
+end
+count snowy_names
 puts snowy_names.join ', '
 #Look up the documentation for Set to see how to test if a word is in it or not
 

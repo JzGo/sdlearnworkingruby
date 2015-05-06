@@ -10,9 +10,9 @@ class BookDatabase
   def count_books author
     books = @books[author]
     if books == nil
-      puts "No such author"
+      "No such author"
     else
-      puts books.length
+      books.length
     end
   end
 
@@ -24,9 +24,9 @@ class BookDatabase
       end
     end
     if result
-      puts result
+      result
     else
-      puts "No such book"
+      "No such book"
     end
   end
 
@@ -34,12 +34,12 @@ class BookDatabase
     books = @books[author]
     if books
       if books.include? title
-        puts "That book is already in the system"
+        "That book is already in the system"
       else
         books << title
       end
     else
-      puts "No such author"
+      "No such author"
     end
   end
 
@@ -49,10 +49,10 @@ class BookDatabase
       if books.include? title
         books.delete title
       else
-        puts "No such title"
+        "No such title"
       end
     else
-      puts "No such author"
+      "No such author"
     end
   end
 end

@@ -39,9 +39,11 @@ end
 
 def add_book author, title
 #TODO
+  @favorite_books[author] = title
 end
 
 def delete_book author, title
+  @favorite_books[author].delete(title)
 #TODO
 end
 

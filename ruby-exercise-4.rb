@@ -13,13 +13,12 @@ i = 0
 
 #rewrite this to use map and each rather than while
 #note: you will find each_slice useful
-while i < snowy_lines.count
-  [0, 1, 4, 5].each do |n|
-    first_word = last_word snowy_lines[i + n]
-    second_word = last_word snowy_lines[i + n + 2]
-    puts "#{first_word}, #{second_word}"
+# while i < snowy_lines.count
+snowy_lines.each_slice(9) do |lines|
+  [0, 1, 4, 5].map do |n|
+    puts "#{last_word lines[n]}: #{last_word lines[n+2]}"
   end
   puts
 
-  i += 9 # This is a short way of writing i = i + 1
+  # i += 9 # This is a short way of writing i = i + 1
 end
