@@ -3,11 +3,11 @@ require_relative '../book_database'
 
 def handle_command db, command, arg
   if command == 'get'
-    db.get_books arg
+    puts db.get_books arg
   elsif command == 'count'
-    db.count_books arg
+    puts db.count_books arg
   elsif command == 'find'
-    db.find arg
+    puts db.find arg
   elsif command == 'add'
     args = arg.split ',', 2
     if args.length == 2

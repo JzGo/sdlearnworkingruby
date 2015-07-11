@@ -7,7 +7,7 @@ class Response
   end
 
   def self.add_dummies *dummies
-    @@dummies += dummies
+    @@dummies << dummies
   end
 
   def self.get_answer question
@@ -15,7 +15,7 @@ class Response
     if responses.length > 0
       responses.sample.get_answers.sample
     else
-      @@dummies.sample
+      puts @@dummies.sample
     end
   end
 

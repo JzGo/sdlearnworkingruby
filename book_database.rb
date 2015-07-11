@@ -3,6 +3,16 @@ class BookDatabase
     @books = books
   end
 
+  def find_author books
+    @books = books
+    @authors = authors_from_books @books
+
+  def authors_from_books books
+    books.each do |author, books|
+      x += 
+    end
+  end
+
   def get_books author
     @books[author]
   end
@@ -21,12 +31,10 @@ class BookDatabase
     @books.each do |author, books|
       if books.include? book
         result = author
+        return result
+      else
+        return "No such book"
       end
-    end
-    if result
-      result
-    else
-      "No such book"
     end
   end
 
@@ -34,12 +42,14 @@ class BookDatabase
     books = @books[author]
     if books
       if books.include? title
-        "That book is already in the system"
+        error_m = "That book is already in the system"
+        return error_m
       else
         books << title
       end
     else
-      "No such author"
+       error_m = "No such author"
+       return error_m
     end
   end
 
@@ -49,10 +59,12 @@ class BookDatabase
       if books.include? title
         books.delete title
       else
-        "No such title"
+        error_m = "No such title"
+        return error_m
       end
     else
-      "No such author"
+      error_m = "No such author"
+      return error_m
     end
   end
 end

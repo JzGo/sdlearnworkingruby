@@ -39,7 +39,13 @@ end
 
 def add_book author, title
 #TODO
-  @favorite_books[author] = title
+  if @favorite_books[author].include?  title
+    puts "Book exists"
+  elsif @favorite_books.has_key? author == false
+    @favorite_books[:author] = title
+  else
+    @favorite_books[author] = title
+  end
 end
 
 def delete_book author, title
@@ -60,14 +66,14 @@ def handle_command command, arg
       #strip removes blanks from beginning and end of string
       add_book args[0].strip, args[1].strip
     else
-      "No book title provided"
+      puts "No book title provided"
     end
   elsif command == 'delete'
     args = arg.split ',', 2
     if args.length == 2
       delete_book args[0].strip, args[1].strip
     else
-      "No book title provided"
+      puts "No book title provided"
     end
   else
     puts "Command not recognized"

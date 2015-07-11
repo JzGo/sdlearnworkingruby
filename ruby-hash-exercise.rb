@@ -17,16 +17,20 @@ end
 
 #TODO finish me
 def count_books author
-  num_books = (@favorite_books[author]).count
-  puts num_books
-  num_books
+  if @favorite_books.include? author
+    num_books = (@favorite_books[author]).count
+    puts num_books
+    num_books
+  else
+    puts "No books found"
+  end
 end
 
 #TODO Finish this
 def find book
   result = nil
   @favorite_books.each do |author, books|
-    if @favorite_books[author].include? book
+    if books.include? book
       result = author
     end
   end
